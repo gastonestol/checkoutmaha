@@ -1,23 +1,19 @@
-package com.maha.challenge.checkout
+package com.maha.challenge.checkout.service
 
 import com.maha.challenge.checkout.domain.repositories.DiscountRepository
 import com.maha.challenge.checkout.domain.repositories.ItemRepository
-import com.maha.challenge.checkout.service.CheckoutService
 import com.maha.challenge.checkout.service.dto.CartPriceDto
-import maha.challenge.checkout.model.Discount
-import maha.challenge.checkout.model.Item
+import com.maha.challenge.checkout.tool.BaseMock
+import com.maha.challenge.checkout.domain.model.Discount
+import com.maha.challenge.checkout.domain.model.Item
 import org.assertj.core.api.Assertions.assertThat
 import org.mockito.Mockito
 import org.mockito.Mockito.`when`
 import org.springframework.boot.test.mock.mockito.MockBean
-import org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener
-import org.springframework.test.context.TestExecutionListeners
-import org.springframework.test.context.testng.AbstractTestNGSpringContextTests
 import org.testng.annotations.BeforeMethod
 import org.testng.annotations.Test
 
-@TestExecutionListeners(listeners = [MockitoTestExecutionListener::class])
-class CheckoutServiceTests: AbstractTestNGSpringContextTests(){
+class CheckoutServiceTests: BaseMock(){
 
     @MockBean
     private lateinit var itemRepository: ItemRepository

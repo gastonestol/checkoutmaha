@@ -1,15 +1,14 @@
-package maha.challenge.checkout.model
+package com.maha.challenge.checkout.domain.model
 
-import javax.persistence.Entity
-import javax.persistence.Id
-import javax.persistence.Table
+import javax.persistence.*
 
+@Table(name = "items")
 @Entity
 data class Item(
     @Id
-    var id: Long? = null,
-    var code: String,
-    var name: String,
-    var price: Float
-) {
-}
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    val id: Long? = null,
+    val code: String,
+    val name: String,
+    val price: Float
+)

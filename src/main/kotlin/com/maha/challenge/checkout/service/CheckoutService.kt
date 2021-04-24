@@ -3,8 +3,8 @@ package com.maha.challenge.checkout.service
 import com.maha.challenge.checkout.domain.repositories.DiscountRepository
 import com.maha.challenge.checkout.domain.repositories.ItemRepository
 import com.maha.challenge.checkout.service.dto.CartPriceDto
-import maha.challenge.checkout.model.Discount
-import maha.challenge.checkout.model.Item
+import com.maha.challenge.checkout.domain.model.Discount
+import com.maha.challenge.checkout.domain.model.Item
 import org.springframework.stereotype.Service
 
 @Service
