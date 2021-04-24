@@ -6,7 +6,7 @@ import javax.persistence.*
 @Entity
 class Discount (
         @Id
-        @GeneratedValue(strategy = GenerationType.AUTO)
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
         val id: Long? = null,
         @ManyToOne(fetch = FetchType.LAZY)
         val item: Item,

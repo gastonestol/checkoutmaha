@@ -6,7 +6,7 @@ import javax.persistence.*
 @Entity
 data class Item(
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long? = null,
     val code: String,
     val name: String,

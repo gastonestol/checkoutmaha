@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.gradle.api.tasks.testing.logging.TestLogEvent
 
 plugins {
 	id("org.springframework.boot") version "2.4.5"
@@ -6,6 +7,7 @@ plugins {
 	kotlin("jvm") version "1.4.32"
 	kotlin("plugin.spring") version "1.4.32"
 	kotlin("plugin.jpa") version "1.4.32"
+	application
 }
 
 group = "maha.challenge"
@@ -26,6 +28,9 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation ("org.testng:testng:7.4.0")
 	testImplementation ("org.assertj:assertj-core:3.19.0")
+	implementation("org.xerial:sqlite-jdbc:3.34.0")
+	implementation("com.github.gwenn:sqlite-dialect:0.1.2")
+
 }
 
 tasks.withType<KotlinCompile> {
@@ -37,4 +42,13 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
 	useTestNG()
+	testLogging {
+		events = setOf(TestLogEvent.FAILED,
+		TestLogEvent.PASSED,
+		TestLogEvent.SKIPPED)
+	}
+}
+
+application {
+	mainClass.set("com.maha.challenge.checkout.DemoApplication")
 }
